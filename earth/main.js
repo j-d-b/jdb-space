@@ -1,17 +1,23 @@
-var ballPos = {
-  x: 0,
-  y: 0
-};
+var sunPlaced = false;
 
-function direction() {
-  return Math.random() > 0.5 ? 1 : -1;
-}
+document.getElementById('sky').addEventListener('click', e => {
+  if (!sunPlaced) {
+    var sun = document.createElement('div');
+    sun.className = 'sun';
+    sun.style.cssText = 'top:' + (e.pageY - 50) +'px; left:' + (e.pageX - 50) + 'px;';
+    document.body.appendChild(sun);
+    sunPlaced = true;
+  } else {
+    var cloud = document.createElement('div');
+    cloud.className = 'cloud';
+    cloud.style.cssText = 'top:' + (e.pageY - 25) +'px; left:' + (e.pageX - 40) + 'px;';
+    document.body.appendChild(cloud);
+  }
+});
 
-document.querySelectorAll('.ball').forEach(element => {
-  element.addEventListener('click', e => {
-    ballPos.x += Math.random() * 200 * direction();
-    ballPos.y += Math.random() * 200 * direction();
-
-    element.style.transform = 'translate(' + ballPos.x + 'px,' + ballPos.y + 'px)';
-  });
+document.getElementById('ground').addEventListener('click', e => {
+  var tree = document.createElement('div');
+  tree.className = 'tree';
+  tree.style.cssText = 'top:' + (e.pageY - 25) +'px; left:' + (e.pageX - 15) + 'px;';
+  document.body.appendChild(tree);
 });
