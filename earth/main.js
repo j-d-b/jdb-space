@@ -1,6 +1,6 @@
 var sunPlaced = false;
 
-document.getElementById('sky').addEventListener('click', e => {
+document.getElementById('sky').addEventListener('click', function(e) {
   if (!sunPlaced) {
     var sun = document.createElement('div');
     sun.className = 'sun';
@@ -15,7 +15,7 @@ document.getElementById('sky').addEventListener('click', e => {
   }
 });
 
-document.getElementById('ground').addEventListener('click', e => {
+document.getElementById('ground').addEventListener('click', function(e) {
   var tree = document.createElement('div');
   tree.className = 'tree';
   tree.style.cssText = 'top:' + (e.pageY - 25) +'px; left:' + (e.pageX - 15) + 'px;';

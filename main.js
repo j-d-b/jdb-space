@@ -7,8 +7,8 @@ function direction() {
   return Math.random() > 0.5 ? 1 : -1;
 }
 
-document.querySelectorAll('.ball').forEach(element => {
-  element.addEventListener('click', e => {
+document.querySelectorAll('.ball').forEach(function(event) {
+  element.addEventListener('click', function(e) {
     ballPos.x += Math.random() * 200 * direction();
     ballPos.y += Math.random() * 200 * direction();
 
